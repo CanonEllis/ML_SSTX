@@ -194,40 +194,52 @@ print(conf_matrix)
 To better understand how SVM works, we can visualize the decision boundary that the SVM creates, along with the support vectors. We will plot this for a subset of the features (2D plot).
 
 ```python
-import numpy as np
+# Import necessary libraries
 import matplotlib.pyplot as plt
-from sklearn.svm import SVC
+from sklearn.datasets import make_classification
+from sklearn.neighbors import KNeighborsClassifier
+from matplotlib.colors import ListedColormap
 
-# Select only two features for visualization
-X_vis = X_train[:, :2]
-y_vis = y_train
+# Create a simple synthetic dataset for visualization
+X, y = make_classification(n_classes=2, n_features=2, n_informative=2, n_redundant=0, random_state=42)
 
-# Train the SVM model on the two features
-svm_vis = SVC(kernel='linear', random_state=42)
-svm_vis.fit(X_vis, y_vis)
+# Train a KNN classifier
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X, y)
 
-# Create a mesh to plot the decision boundary
-x_min, x_max = X_vis[:, 0].min() - 1, X_vis[:, 0].max() + 1
-y_min, y_max = X_vis[:, 1].min() - 1, X_vis[:, 1].max() + 1
-xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.02), np.arange(y_min, y_max, 0.02))
+# Generate a mesh grid for the decision boundary
+x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.1), np.arange(y_min, y_max, 0.1))
 
-# Plot decision boundary
-Z = svm_vis.predict(np.c_[xx.ravel(), yy.ravel()])
+# Predict the class labels for each point in the mesh grid
+Z = knn.predict(np.c_[xx.ravel(), yy.ravel()])
 Z = Z.reshape(xx.shape)
 
-plt.contourf(xx, yy, Z, cmap=plt.cm.coolwarm, alpha=0.8)
+# Create a color map for the plot
+cmap_light = ListedColormap(['#FFAAAA', '#AAAAFF'])
+cmap_bold = ['#FF0000', '#0000FF']
 
-# Plot the points
-plt.scatter(X_vis[:, 0], X_vis[:, 1], c=y_vis, cmap=plt.cm.coolwarm, edgecolors='k')
+# Plot the decision boundary and the training points
+plt.figure(figsize=(8, 6))
+plt.contourf(xx, yy, Z, cmap=cmap_light)
 
-# Highlight the support vectors
-plt.scatter(svm_vis.support_vectors_[:, 0], svm_vis.support_vectors_[:, 1], facecolors='none', s=100, edgecolors='k')
-
+# Plot the training points
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap=ListedColormap(cmap_bold), edgecolor='k', s=100)
+plt.title("K-Nearest Neighbors (KNN) Visualization")
 plt.xlabel('Feature 1')
 plt.ylabel('Feature 2')
-plt.title('SVM Decision Boundary with Support Vectors')
+plt.grid(True)
 plt.show()
 ```
+
+Here is a visualization of the K-Nearest Neighbors (KNN) classification algorithm.
+
+The background color represents the decision boundary, indicating how the classifier assigns points to either class based on the training data.  
+The red and blue points are the data points from the two classes in the dataset.  
+KNN classifies a new point by looking at the \( k \) nearest neighbors (in this case, 5 neighbors) and assigning the class that appears most frequently among those neighbors.  
+This visual shows how KNN forms decision boundaries based on the nearest points in feature space.
+
 
 ### Explanation:
 - We use only two features from the dataset to visualize the decision boundary in a 2D plot.
