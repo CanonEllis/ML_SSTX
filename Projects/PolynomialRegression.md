@@ -106,7 +106,7 @@ print(f"Test R-squared: {r2_test:.3f}")
 
 ## 4. Mean Squared Error (MSE) Explanation
 
-The mean squared error (MSE) is a metric that calculates the average squared difference between the actual values \(y\) and the predicted values \(\hat{y}\):
+The mean squared error (MSE) is a metric that calculates the average squared difference between the actual values $y_i$ and the predicted values $\hat{y}_i$:
 
 $$
 \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
