@@ -115,7 +115,7 @@ $$
 Where:
 - \(n\) is the number of samples.
 - \(y_i\) is the actual value.
-- \(\hat{y}_i\) is the predicted value.
+- \(&hat{y}_i\) is the predicted value.
 
 Lower MSE indicates a better fit.
 
@@ -131,7 +131,7 @@ Where:
 - \(y_i\) is the actual value.
 - \(\hat{y}_i\) is the predicted value.
 - \(ar{y}\) is the mean of the actual values.
-
+&alpha
 Higher \(R^2\) values indicate that the model explains more variance.
 
 ## 6. Jupyter Notebook with Code and Comments
