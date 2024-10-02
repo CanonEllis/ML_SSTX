@@ -35,7 +35,7 @@ pip install numpy scikit-learn matplotlib
 Logistic regression is used for binary classification tasks where the goal is to predict whether an input belongs to one of two classes. The model estimates the probability that a given input belongs to class 1 and classifies it accordingly.
 
 
-![Alt Text](images/logreg_graph.png)
+![Alt Text](./images/logreg_graph.png)
 
 #### Sigmoid Function
 
