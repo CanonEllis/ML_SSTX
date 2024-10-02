@@ -117,7 +117,7 @@ In addition to log loss, there are other important metrics used to evaluate clas
 Accuracy measures the proportion of correct predictions (both true positives and true negatives) out of the total predictions.
 
 $$
-    {Accuracy} = \frac{	ext{True Positives} + 	{True Negatives}}{	{Total Samples}}
+    {Accuracy} = \frac{	{True Positives} + 	{True Negatives}}{	{Total Samples}}
 $$
 
 ### Precision
