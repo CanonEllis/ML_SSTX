@@ -9,6 +9,7 @@
 5. [Building and Training the k-NN Model](#5-building-and-training-the-k-nn-model)
 6. [Model Evaluation](#6-model-evaluation)
 7. [Conclusion](#7-conclusion)
+8. [Full Code](#8-full-code)
 
 ## 1. Introduction
 
@@ -158,3 +159,48 @@ In this project, we learned how to implement k-Nearest Neighbors (k-NN) using Sc
 - Evaluating the model's performance using accuracy and a confusion matrix.
 
 k-NN is a simple yet powerful algorithm, and understanding it is important for grasping more complex machine learning models.
+
+## 8. Full Code
+
+Below is the full code for the entire k-NN implementation:
+
+```python
+# Import necessary libraries
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+# Load the Iris dataset
+iris = load_iris()
+
+# Convert to a pandas DataFrame for better visualization
+df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+df['target'] = iris.target  # Adding the target (class labels)
+
+# Split data into features (X) and labels (y)
+X = iris.data
+y = iris.target
+
+# Split the dataset into training (80%) and testing (20%) sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize the k-NN classifier with k=3 (3 nearest neighbors)
+knn = KNeighborsClassifier(n_neighbors=3)
+
+# Train the model on the training data
+knn.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred = knn.predict(X_test)
+
+# Calculate and print the accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy * 100:.2f}%")
+
+# Generate and print the confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(conf_matrix)
+```
