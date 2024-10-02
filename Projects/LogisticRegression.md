@@ -40,7 +40,9 @@ The logistic regression model is based on the sigmoid function, which maps any r
 
 The sigmoid function is defined as:
 
-\[\sigma(z) = rac{1}{1 + e^{-z}}\]
+$$
+\sigma(z) = \frac{1}{1 + e^{-z}}
+$$
 
 Where:
 - \( z \) is the linear combination of input features and model coefficients.
@@ -95,8 +97,9 @@ Log loss, also known as logarithmic loss or logistic loss, is the evaluation met
 
 The formula for log loss is:
 
-\[	ext{Log Loss} = -rac{1}{N} \sum_{i=1}^{N} \left[y_i \log(p_i) + (1 - y_i) \log(1 - p_i)
-ight]\]
+$$
+    ext{Log Loss} = -\frac{1}{N} \sum_{i=1}^{N} \left[y_i \log(p_i) + (1 - y_i) \log(1 - p_i)\right]
+$$
 
 Where:
 - \( N \) is the number of samples.
@@ -113,25 +116,33 @@ In addition to log loss, there are other important metrics used to evaluate clas
 
 Accuracy measures the proportion of correct predictions (both true positives and true negatives) out of the total predictions.
 
-\[	ext{Accuracy} = rac{	ext{True Positives} + 	ext{True Negatives}}{	ext{Total Samples}}\]
+$$
+    ext{Accuracy} = \frac{	ext{True Positives} + 	ext{True Negatives}}{	ext{Total Samples}}
+$$
 
 ### Precision
 
 Precision is the proportion of true positive predictions out of all positive predictions (both true positives and false positives).
 
-\[	ext{Precision} = rac{	ext{True Positives}}{	ext{True Positives} + 	ext{False Positives}}\]
+$$
+    ext{Precision} = \frac{	ext{True Positives}}{	ext{True Positives} + 	ext{False Positives}}
+$$
 
 ### Recall
 
 Recall measures the proportion of actual positive samples that were correctly predicted.
 
-\[	ext{Recall} = rac{	ext{True Positives}}{	ext{True Positives} + 	ext{False Negatives}}\]
+$$
+    ext{Recall} = \frac{	ext{True Positives}}{	ext{True Positives} + 	ext{False Negatives}}
+$$
 
 ### F1-Score
 
 The F1-score is the harmonic mean of precision and recall. It balances both metrics.
 
-\[	ext{F1-Score} = 2 	imes rac{	ext{Precision} 	imes 	ext{Recall}}{	ext{Precision} + 	ext{Recall}}\]
+$$
+    ext{F1-Score} = 2 \times \frac{	ext{Precision} \times 	ext{Recall}}{	ext{Precision} + 	ext{Recall}}
+$$
 
 ## 6. Jupyter Notebook with Code and Comments
 
