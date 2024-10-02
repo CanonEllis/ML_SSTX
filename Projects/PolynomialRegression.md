@@ -11,17 +11,17 @@
 7. [Conclusion](#7-conclusion)
 
 ## 1. Introduction
-Polynomial regression is an extension of linear regression, which models the relationship between the independent variable(s) and the dependent variable as an \(n\)-degree polynomial. It is used when the relationship between variables is nonlinear.
+Polynomial regression is an extension of linear regression that models the relationship between the independent variable(s) and the dependent variable as an n-degree polynomial. It is used when the relationship between variables is nonlinear.
 
 While linear regression fits a straight line (first-degree polynomial), polynomial regression fits a curve that can capture more complex relationships. The polynomial function can take the following form:
 
-$$
-y = &beta;_0 + &beta;_1 x + &beta;_2 x^2 + &dots; + &beta;_n x^n
-$$
+```
+y = beta_0 + beta_1 * x + beta_2 * x^2 + ... + beta_n * x^n
+```
 
 Where:
 - **y** is the predicted value.
-- **&beta;_0, &beta;_1, &dots;, &beta;_n** are the model coefficients.
+- **beta_0, beta_1, ..., beta_n** are the model coefficients.
 - **x** is the input feature (or independent variable).
 - **n** is the degree of the polynomial.
 
@@ -106,33 +106,33 @@ print(f"Test R-squared: {r2_test:.3f}")
 
 ## 4. Mean Squared Error (MSE) Explanation
 
-The mean squared error (MSE) is a metric that calculates the average squared difference between the actual values **y<sub>i</sub>** and the predicted values **&hat;y<sub>i</sub>**:
+The mean squared error (MSE) is a metric that calculates the average squared difference between the actual values (y_i) and the predicted values (y_hat_i):
 
-$$
-\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-$$
+```
+MSE = (1/n) * sum((y_i - y_hat_i)^2)
+```
 
 Where:
 - **n** is the number of samples.
-- **y<sub>i</sub>** is the actual value.
-- **&hat;y<sub>i</sub>** is the predicted value.
+- **y_i** is the actual value.
+- **y_hat_i** is the predicted value.
 
 Lower MSE indicates a better fit.
 
 ## 5. R-squared Explanation
 
-R-squared (**R<sup>2</sup>**) is a metric that indicates how well the independent variables explain the variance in the dependent variable. It is defined as:
+R-squared (R^2) is a metric that indicates how well the independent variables explain the variance in the dependent variable. It is defined as:
 
-$$
-R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}
-$$
+```
+R^2 = 1 - (sum(y_i - y_hat_i)^2 / sum(y_i - y_mean)^2)
+```
 
 Where:
-- **y<sub>i</sub>** is the actual value.
-- **&hat;y<sub>i</sub>** is the predicted value.
-- **&bar;y** is the mean of the actual values.
+- **y_i** is the actual value.
+- **y_hat_i** is the predicted value.
+- **y_mean** is the mean of the actual values.
 
-Higher **R<sup>2</sup>** values indicate that the model explains more variance.
+Higher R^2 values indicate that the model explains more variance.
 
 ## 6. Jupyter Notebook with Code and Comments
 
@@ -186,4 +186,4 @@ In this project, you learned:
 - How to implement polynomial regression for nonlinear data using Scikit-learn.
 - How to use the `PolynomialFeatures` class to generate polynomial features.
 - How to evaluate the model using metrics like Mean Squared Error (MSE) and R-squared.
-- The significance of **R<sup>2</sup>** and MSE in evaluating the performance of a regression model.
+- The significance of R^2 and MSE in evaluating the performance of a regression model.
