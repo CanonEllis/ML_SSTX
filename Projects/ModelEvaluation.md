@@ -55,7 +55,7 @@ A **Confusion Matrix** is a performance measurement used for classification mode
 - **False Positives (FP)**: Incorrectly predicted positive cases (Type I Error).
 - **False Negatives (FN)**: Incorrectly predicted negative cases (Type II Error).
 
-The confusion matrix gives insight into where the model is making mistakes, and helps evaluate more than just overall accuracy.
+The confusion matrix gives insight into where the model is making mistakes and helps evaluate more than just overall accuracy.
 
 ### Confusion Matrix Layout
 
@@ -86,9 +86,9 @@ print(cm)
 
 **Accuracy** is the most basic evaluation metric for classification problems. It measures the proportion of correct predictions out of all predictions.
 
-\[
-Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
-\]
+```
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+```
 
 While accuracy is easy to understand, it can be misleading in cases of imbalanced datasets (where one class is significantly larger than the other).
 
@@ -108,9 +108,9 @@ print(f"Accuracy: {accuracy * 100:.2f}%")
 
 **Precision** is the proportion of true positives out of all predicted positive cases. It tells you how many of the predicted positive instances were actually positive.
 
-\[
-Precision = \frac{TP}{TP + FP}
-\]
+```
+Precision = TP / (TP + FP)
+```
 
 Precision is particularly important when the cost of false positives is high, such as in spam detection, where you want to minimize the number of legitimate emails incorrectly classified as spam.
 
@@ -130,9 +130,9 @@ print(f"Precision: {precision * 100:.2f}%")
 
 **Recall** (also known as **Sensitivity** or **True Positive Rate**) is the proportion of true positives out of all actual positive cases. It tells you how many of the actual positive cases were correctly identified by the model.
 
-\[
-Recall = \frac{TP}{TP + FN}
-\]
+```
+Recall = TP / (TP + FN)
+```
 
 Recall is crucial when the cost of false negatives is high, such as in medical diagnoses where failing to identify a disease could be harmful.
 
@@ -152,7 +152,7 @@ print(f"Recall: {recall * 100:.2f}%")
 
 ### Accuracy
 - **Definition**: The proportion of correct predictions (true positives and true negatives) out of the total predictions.
-- **Formula**: \( \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} \)
+- **Formula**: `Accuracy = (TP + TN) / (TP + TN + FP + FN)`
 
 ### Confusion Matrix
 - **Definition**: A table that visualizes the performance of a classification algorithm by showing the number of true positives, true negatives, false positives, and false negatives.
@@ -169,11 +169,11 @@ print(f"Recall: {recall * 100:.2f}%")
 
 ### Precision
 - **Definition**: The proportion of true positives out of all predicted positive cases.
-- **Formula**: \( \text{Precision} = \frac{TP}{TP + FP} \)
+- **Formula**: `Precision = TP / (TP + FP)`
 
 ### Recall
 - **Definition**: The proportion of true positives out of all actual positive cases.
-- **Formula**: \( \text{Recall} = \frac{TP}{TP + FN} \)
+- **Formula**: `Recall = TP / (TP + FN)`
 
 ### Support Vectors
 - **Definition**: Data points that lie closest to the hyperplane and influence the position of the decision boundary in Support Vector Machines.
@@ -183,4 +183,3 @@ print(f"Recall: {recall * 100:.2f}%")
 
 ### True Positive (TP)
 - **Definition**: A case where the model correctly predicts a positive class.
-
