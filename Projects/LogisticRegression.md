@@ -98,7 +98,7 @@ Log loss, also known as logarithmic loss or logistic loss, is the evaluation met
 The formula for log loss is:
 
 $$
-    ext{Log Loss} = -\frac{1}{N} \sum_{i=1}^{N} \left[y_i \log(p_i) + (1 - y_i) \log(1 - p_i)\right]
+    {Log Loss} = -\frac{1}{N} \sum_{i=1}^{N} \left[y_i \log(p_i) + (1 - y_i) \log(1 - p_i)\right]
 $$
 
 Where:
@@ -117,7 +117,7 @@ In addition to log loss, there are other important metrics used to evaluate clas
 Accuracy measures the proportion of correct predictions (both true positives and true negatives) out of the total predictions.
 
 $$
-    ext{Accuracy} = \frac{	ext{True Positives} + 	ext{True Negatives}}{	ext{Total Samples}}
+    {Accuracy} = \frac{	ext{True Positives} + 	{True Negatives}}{	{Total Samples}}
 $$
 
 ### Precision
@@ -125,7 +125,7 @@ $$
 Precision is the proportion of true positive predictions out of all positive predictions (both true positives and false positives).
 
 $$
-    ext{Precision} = \frac{	ext{True Positives}}{	ext{True Positives} + 	ext{False Positives}}
+    {Precision} = \frac{	{True Positives}}{	{True Positives} + 	{False Positives}}
 $$
 
 ### Recall
@@ -133,7 +133,7 @@ $$
 Recall measures the proportion of actual positive samples that were correctly predicted.
 
 $$
-    ext{Recall} = \frac{	ext{True Positives}}{	ext{True Positives} + 	ext{False Negatives}}
+    {Recall} = \frac{	{True Positives}}{	{True Positives} + 	{False Negatives}}
 $$
 
 ### F1-Score
@@ -141,7 +141,7 @@ $$
 The F1-score is the harmonic mean of precision and recall. It balances both metrics.
 
 $$
-    ext{F1-Score} = 2 \times \frac{	ext{Precision} \times 	ext{Recall}}{	ext{Precision} + 	ext{Recall}}
+    {F1-Score} = 2 \times \frac{	{Precision} \times 	{Recall}}{	{Precision} + 	{Recall}}
 $$
 
 ## 6. Jupyter Notebook with Code and Comments
