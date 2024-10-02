@@ -8,8 +8,9 @@
 5. [The Math Behind SVM](#5-the-math-behind-svm)
 6. [Building and Training the SVM Model](#6-building-and-training-the-svm-model)
 7. [Model Evaluation](#7-model-evaluation)
-8. [Conclusion](#8-conclusion)
-9. [Full Code](#9-full-code)
+8. [Visualization](#8-visualization)
+9. [Conclusion](#9-conclusion)
+10. [Full Code](#10-full-code)
 
 ## 1. Introduction
 
@@ -188,18 +189,63 @@ print(conf_matrix)
 ### Explanation:
 - A confusion matrix provides insight into the performance of the classification model by showing the number of true positives, false positives, true negatives, and false negatives. It helps in understanding which classes are being misclassified.
 
-## 8. Conclusion
+## 8. Visualization
+
+To better understand how SVM works, we can visualize the decision boundary that the SVM creates, along with the support vectors. We will plot this for a subset of the features (2D plot).
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.svm import SVC
+
+# Select only two features for visualization
+X_vis = X_train[:, :2]
+y_vis = y_train
+
+# Train the SVM model on the two features
+svm_vis = SVC(kernel='linear', random_state=42)
+svm_vis.fit(X_vis, y_vis)
+
+# Create a mesh to plot the decision boundary
+x_min, x_max = X_vis[:, 0].min() - 1, X_vis[:, 0].max() + 1
+y_min, y_max = X_vis[:, 1].min() - 1, X_vis[:, 1].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.02), np.arange(y_min, y_max, 0.02))
+
+# Plot decision boundary
+Z = svm_vis.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+
+plt.contourf(xx, yy, Z, cmap=plt.cm.coolwarm, alpha=0.8)
+
+# Plot the points
+plt.scatter(X_vis[:, 0], X_vis[:, 1], c=y_vis, cmap=plt.cm.coolwarm, edgecolors='k')
+
+# Highlight the support vectors
+plt.scatter(svm_vis.support_vectors_[:, 0], svm_vis.support_vectors_[:, 1], facecolors='none', s=100, edgecolors='k')
+
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.title('SVM Decision Boundary with Support Vectors')
+plt.show()
+```
+
+### Explanation:
+- We use only two features from the dataset to visualize the decision boundary in a 2D plot.
+- A meshgrid is created to map the decision boundary using the trained SVM model.
+- The plot shows the decision boundary, the data points, and highlights the support vectors.
+
+## 9. Conclusion
 
 In this project, we learned how to implement Support Vector Machines (SVM) using Scikit-learn. We covered:
 - Loading and visualizing the Iris dataset.
 - Splitting the dataset into training and testing sets.
 - Training an SVM classifier using the training data.
 - Evaluating the model's performance using accuracy and a confusion matrix.
-- The mathematical principles behind SVM, including hyperplane and margin maximization.
+- Visualizing the decision boundary and understanding the concept of support vectors.
 
 Support Vector Machines are powerful algorithms, especially in high-dimensional spaces, and are commonly used in both classification and regression tasks.
 
-## 9. Full Code
+## 10. Full Code
 
 Below is the full code for the entire SVM implementation:
 
@@ -210,6 +256,8 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, confusion_matrix
+import numpy as np
+import matplotlib.pyplot as plt
 
 # Load the Iris dataset
 iris = load_iris()
@@ -242,4 +290,34 @@ print(f"Accuracy: {accuracy * 100:.2f}%")
 conf_matrix = confusion_matrix(y_test, y_pred)
 print("Confusion Matrix:")
 print(conf_matrix)
+
+# Visualization for 2D Decision Boundary
+X_vis = X_train[:, :2]
+y_vis = y_train
+
+# Train the SVM model on the two features
+svm_vis = SVC(kernel='linear', random_state=42)
+svm_vis.fit(X_vis, y_vis)
+
+# Create a mesh to plot the decision boundary
+x_min, x_max = X_vis[:, 0].min() - 1, X_vis[:, 0].max() + 1
+y_min, y_max = X_vis[:, 1].min() - 1, X_vis[:, 1].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.02), np.arange(y_min, y_max, 0.02))
+
+# Plot decision boundary
+Z = svm_vis.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+
+plt.contourf(xx, yy, Z, cmap=plt.cm.coolwarm, alpha=0.8)
+
+# Plot the points
+plt.scatter(X_vis[:, 0], X_vis[:, 1], c=y_vis, cmap=plt.cm.coolwarm, edgecolors='k')
+
+# Highlight the support vectors
+plt.scatter(svm_vis.support_vectors_[:, 0], svm_vis.support_vectors_[:, 1], facecolors='none', s=100, edgecolors='k')
+
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.title('SVM Decision Boundary with Support Vectors')
+plt.show()
 ```
