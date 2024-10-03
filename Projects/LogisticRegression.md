@@ -7,8 +7,7 @@
 3. [Code Walkthrough](#3-code-walkthrough)
 4. [Log Loss Explanation](#4-log-loss-explanation)
 5. [Evaluation Metrics](#5-evaluation-metrics)
-6. [Jupyter Notebook with Code and Comments](#6-jupyter-notebook-with-code-and-comments)
-7. [Conclusion](#7-conclusion)
+6. [Conclusion](#7-conclusion)
 
 ## 1. Introduction
 This project demonstrates how to implement logistic regression using Scikit-learn and evaluate the model using key metrics such as accuracy, precision, recall, F1-score, and log loss. In addition, it provides explanations for the mathematical concepts behind these metrics.
