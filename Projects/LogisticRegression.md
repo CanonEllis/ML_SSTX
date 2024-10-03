@@ -147,55 +147,6 @@ $$
     {F1-Score} = 2 \times \frac{	{Precision} \times 	{Recall}}{	{Precision} + 	{Recall}}
 $$
 
-## 6. Jupyter Notebook with Code and Comments
-
-Below is the code for logistic regression with ample comments to help you understand each step.
-
-```python
-# Import necessary libraries
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, log_loss
-
-# Load the Iris dataset
-from sklearn.datasets import load_iris
-iris = load_iris()
-
-# We will use only 2 classes (binary classification)
-X = iris.data
-y = (iris.target == 2).astype(int)  # Convert to binary classification problem
-
-# Split the dataset into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Initialize the Logistic Regression model
-logreg = LogisticRegression()
-
-# Train the Logistic Regression model using the training data
-logreg.fit(X_train, y_train)
-
-# Make predictions using the test data
-y_pred = logreg.predict(X_test)
-
-# Calculate the probabilities for each class
-y_prob = logreg.predict_proba(X_test)[:, 1]  # Probabilities for class 1 (Iris-Virginica)
-
-# Calculate the evaluation metrics
-accuracy = accuracy_score(y_test, y_pred)
-precision = precision_score(y_test, y_pred)
-recall = recall_score(y_test, y_pred)
-f1 = f1_score(y_test, y_pred)
-loss = log_loss(y_test, y_prob)
-
-# Print the evaluation metrics to see how well the model performed
-print(f"Accuracy: {accuracy:.2f}")
-print(f"Precision: {precision:.2f}")
-print(f"Recall: {recall:.2f}")
-print(f"F1-Score: {f1:.2f}")
-print(f"Log Loss: {loss:.2f}")
-```
-
 ## 7. Conclusion
 
 In this project, you learned:
