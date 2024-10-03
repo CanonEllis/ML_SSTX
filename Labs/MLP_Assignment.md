@@ -169,6 +169,6 @@ Students will progressively build Multilayer Perceptrons (MLPs) to classify imag
 
 ## Submission:
 
-- Python scripts implementing each MLP (1-layer, 2-layer, 3-layer, and 4-layer) with clear comments.
+- Python notebook implementing each MLP (1-layer, 2-layer, 3-layer, and 4-layer) with clear comments.
 - A report with results for each MLP architecture, including training accuracy, validation accuracy, and any observations on how the model performance changes with more layers.
 - For the challenge question, include a discussion on how dropout regularization impacted your model's performance.
