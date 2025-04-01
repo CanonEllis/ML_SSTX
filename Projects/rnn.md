@@ -240,7 +240,7 @@ Submit a Jupyter Notebook (`.ipynb`) that includes:
 4. A short reflection on what worked best and why.
 
 ## Challenge Question
-Analyze the vanishing gradient problem in the context of training your RNN model. Compare the gradient behavior of a simple RNN, an LSTM, and a GRU by examining gradient magnitudes during training. Which architecture mitigates vanishing gradients most effectively, and why?
+Create a high quality and applicable cover art for your short story, thematically relevant to your generated content. 
 
 
 ## Further Resources
