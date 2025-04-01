@@ -194,6 +194,55 @@ def sample(preds, temperature=1.0):
 - **Exponentiation and Normalization:** Converts log probabilities back into a probability distribution.
 - **Sampling:** A character index is sampled from the probability distribution.
 
+
+# Assignment: RNN Text Generation with Keras
+
+## Assignment Description
+
+In this assignment, you will implement a character-level Recurrent Neural Network (RNN) to generate text. You will select a text dataset from [Project Gutenberg](https://www.gutenberg.org/), preprocess it, and experiment with different RNN architectures to improve text generation quality. Your final submission should include a Jupyter Notebook documenting your process and the best-generated text output from your model.
+
+
+### Experimentation
+Throughout this assignment, you will experiment with different RNN architectures such as:
+- Basic RNN
+- LSTM
+- GRU
+- Stacked or bidirectional layers
+
+## Assignment
+### Step 1: Dataset Selection
+Choose a text dataset from [Project Gutenberg](https://www.gutenberg.org/). It should be a novel, collection of works, genre, or long-form text that provides enough data for training. Download and load the dataset into your Jupyter Notebook.
+
+### Step 2: Data Preprocessing
+- Convert all text to lowercase.
+- Create a mapping of characters to integers and vice versa.
+- Prepare sequences of fixed length (e.g., 100 characters per sequence).
+- One-hot encode the sequences for model input.
+
+### Step 3: Model Implementation
+- Implement an LSTM-based RNN model as a baseline.
+- Train the model on your dataset.
+- Generate sample text using your trained model.
+
+### Step 4: Experimentation
+Modify the architecture and observe its effects on text generation. Some ideas:
+- Increase or decrease the number of LSTM/GRU layers.
+- Try a bidirectional LSTM/GRU.
+- Adjust dropout rates.
+- Tune hyperparameters like learning rate and sequence length.
+- Compare LSTM vs. GRU performance.
+
+### Step 5: Submission
+Submit a Jupyter Notebook (`.ipynb`) that includes:
+1. Your selected dataset and preprocessing steps.
+2. A summary of different architectures you experimented with.
+3. The best-generated text sample from your model.
+4. A short reflection on what worked best and why.
+
+## Challenge Question
+Analyze the vanishing gradient problem in the context of training your RNN model. Compare the gradient behavior of a simple RNN, an LSTM, and a GRU by examining gradient magnitudes during training. Which architecture mitigates vanishing gradients most effectively, and why?
+
+
 ## Further Resources
 
 - [Keras Documentation](https://keras.io/)
